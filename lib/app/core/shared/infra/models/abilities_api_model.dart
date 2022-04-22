@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../domain/enitities/abilities_api.dart';
+import '../../domain/entities/abilities_api.dart';
 import 'ability_api_model.dart';
 
 part 'abilities_api_model.g.dart';

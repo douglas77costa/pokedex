@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:pokedex/app/core/shared/domain/enitities/pokemon_item.dart';
+import 'package:pokedex/app/core/shared/domain/entities/pokemon_item.dart';
 
 part 'pokemon_item_model.g.dart';
 

@@ -1,4 +1,4 @@
-import 'package:pokedex/app/core/shared/domain/enitities/types.dart';
+import 'package:pokedex/app/core/shared/domain/entities/types.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'types_model.g.dart';

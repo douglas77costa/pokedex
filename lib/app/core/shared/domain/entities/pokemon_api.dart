@@ -1,4 +1,4 @@
-import 'package:pokedex/app/core/shared/domain/enitities/abilities_api.dart';
+import 'package:pokedex/app/core/shared/domain/entities/abilities_api.dart';
 
 import 'types_api.dart';
 

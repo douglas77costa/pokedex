@@ -1,5 +1,9 @@
-import 'package:pokedex/app/core/shared/infra/models/pokemon_model.dart';
+
+import '../../../domain/entities/pokemon.dart';
 
 abstract class PokemonLocalDataSource{
-  Future<PokemonModel> getAllPokemon();
+  List<Pokemon>? getAllPokemon();
+  Pokemon getPokemonById(int id);
+  Future<bool> addAllPokemon(List<Pokemon> list);
+  Future<bool> deleteAllPokemon();
 }

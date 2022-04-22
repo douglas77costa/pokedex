@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:get/get.dart';
-import 'package:pokedex/app/core/shared/domain/enitities/flavor_text_entries_api.dart';
-import 'package:pokedex/app/core/shared/domain/enitities/pokemon_item.dart';
-import 'package:pokedex/app/core/shared/domain/enitities/pokemon_api.dart';
+import 'package:pokedex/app/core/shared/domain/entities/flavor_text_entries_api.dart';
+import 'package:pokedex/app/core/shared/domain/entities/pokemon_item.dart';
+import 'package:pokedex/app/core/shared/domain/entities/pokemon_api.dart';
 import 'package:pokedex/app/core/shared/infra/models/pokemon_api_model.dart';
 import 'package:pokedex/app/core/shared/infra/models/response/pokemon_list_response.dart';
 import 'package:pokedex/app/core/utils/api_base.dart';

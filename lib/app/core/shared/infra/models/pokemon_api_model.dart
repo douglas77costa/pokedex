@@ -1,7 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pokedex/app/core/shared/infra/models/abilities_api_model.dart';
 
-import '../../domain/enitities/pokemon_api.dart';
+import '../../domain/entities/pokemon_api.dart';
 import 'types_api_model.dart';
 
 part 'pokemon_api_model.g.dart';

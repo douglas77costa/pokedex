@@ -1,4 +1,4 @@
-import 'package:pokedex/app/core/shared/domain/enitities/types.dart';
+import 'package:pokedex/app/core/shared/domain/entities/types.dart';
 
 class Pokemon {
   int? code;
