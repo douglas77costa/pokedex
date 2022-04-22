@@ -1,6 +1,15 @@
-class AbilityApiModel {
-  String? name;
-  String? url;
+import 'package:json_annotation/json_annotation.dart';
 
-  AbilityApiModel({this.name, this.url});
+import '../../domain/enitities/ability_api.dart';
+
+part 'ability_api_model.g.dart';
+
+@JsonSerializable()
+class AbilityApiModel extends AbilityApi{
+
+  AbilityApiModel():super();
+
+  factory AbilityApiModel.fromJson(Map<String, dynamic> json) =>
+      _$AbilityApiModelFromJson(json);
+  Map<String, dynamic> toJson() => _$AbilityApiModelToJson(this);
 }
