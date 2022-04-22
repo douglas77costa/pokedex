@@ -1,2 +1,2 @@
 # pokedex
- A Flutter pokex app.
+ A Flutter pokedex app.s
