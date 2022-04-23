@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:pokedex/app/core/shared/domain/entities/flavor_text_entries_api.dart';
-import 'package:pokedex/app/core/shared/domain/entities/pokemon_item.dart';
 import 'package:pokedex/app/core/shared/domain/entities/pokemon_api.dart';
+import 'package:pokedex/app/core/shared/domain/entities/pokemon_item.dart';
 import 'package:pokedex/app/core/shared/infra/models/pokemon_api_model.dart';
 import 'package:pokedex/app/core/shared/infra/models/response/pokemon_list_response.dart';
 import 'package:pokedex/app/core/utils/api_base.dart';
@@ -19,7 +17,7 @@ class PokemonApiDataSourceImpl implements PokemonApiDataSource {
     try {
       var response = await getConnect.get('${ApiBase.baseUrlPokeApi}/pokemon?limit=1126');
       if (response.statusCode == 200) {
-        var list = PokemonListResponseModel.fromJson(json.decode(response.body));
+        var list = PokemonListResponseModel.fromJson(response.body);
         return list.results;
       } else {
         throw Exception(response.bodyString);
@@ -34,7 +32,7 @@ class PokemonApiDataSourceImpl implements PokemonApiDataSource {
     try {
       var response = await getConnect.get('${ApiBase.baseUrlPokeApi}/pokemon/$id/');
       if (response.statusCode == 200) {
-        var pokemonSpecie = PokemonApiModel.fromJson(json.decode(response.body));
+        var pokemonSpecie = PokemonApiModel.fromJson(response.body);
         return pokemonSpecie;
       } else {
         throw Exception(response.bodyString);
@@ -50,7 +48,7 @@ class PokemonApiDataSourceImpl implements PokemonApiDataSource {
       var response =
           await getConnect.get('${ApiBase.baseUrlPokeApi}/pokemon-species/$id/');
       if (response.statusCode == 200) {
-        var pokemonSpecie = PokemonSpeciesResponse.fromJson(json.decode(response.body));
+        var pokemonSpecie = PokemonSpeciesResponse.fromJson(response.body);
         return pokemonSpecie.flavorTextEntries;
       } else {
         throw Exception(response.bodyString);

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:pokedex/app/core/shared/infra/models/types_model.dart';
 
 import 'app/app_widget.dart';
 import 'app/core/shared/infra/models/pokemon_model.dart';
@@ -22,5 +23,6 @@ void loadUi() async {
 Future _initHive() async {
   await Hive.initFlutter();
   Hive.registerAdapter(PokemonModelAdapter());
-  return await Hive.openBox('pokemon');
+  Hive.registerAdapter(TypesModelAdapter());
+  return await Hive.openBox<PokemonModel>('pokemon');
 }

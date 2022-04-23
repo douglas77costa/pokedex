@@ -1,0 +1,1 @@
+enum StatusType {INITIAL, SUCCESS, LOAD, ERROR, EMPTY }

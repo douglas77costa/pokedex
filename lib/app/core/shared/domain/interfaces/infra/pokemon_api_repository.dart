@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+
 import '../../entities/flavor_text_entries_api.dart';
 import '../../entities/pokemon_api.dart';
 import '../../entities/pokemon_item.dart';

@@ -6,6 +6,7 @@ part 'pokemon_species_response.g.dart';
 
 @JsonSerializable()
 class PokemonSpeciesResponse {
+  @JsonKey(name: 'flavor_text_entries')
   List<FlavorTextEntriesApiModel>? flavorTextEntries;
   PokemonSpeciesResponse({this.flavorTextEntries});
 

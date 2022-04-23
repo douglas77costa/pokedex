@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:hive/hive.dart';
 import 'package:pokedex/app/core/shared/domain/entities/pokemon.dart';
 import 'package:pokedex/app/core/shared/infra/models/pokemon_model.dart';
@@ -7,13 +5,12 @@ import 'package:pokedex/app/core/shared/infra/models/pokemon_model.dart';
 import '../../infra/interfaces/storage/pokemon_local_datasource.dart';
 
 class PokemonLocalDataSourceImpl extends PokemonLocalDataSource {
-  var boxPokemon = Hive.box<Pokemon>('pokemon');
-
   @override
   List<Pokemon>? getAllPokemon() {
     try {
+      final _boxPokemon = Hive.box<PokemonModel>('pokemon');
       var list = <Pokemon>[];
-      list.addAll(boxPokemon.values);
+      list.addAll(_boxPokemon.values);
       return list;
     } catch (e) {
       rethrow;
@@ -21,9 +18,10 @@ class PokemonLocalDataSourceImpl extends PokemonLocalDataSource {
   }
 
   @override
-  Future<bool> addAllPokemon(List<Pokemon> list) async {
+  Future<bool> saveAllPokemon(List<Pokemon> list) async {
     try {
-      await boxPokemon.addAll(list);
+      final _boxPokemon = Hive.box<PokemonModel>('pokemon');
+      await _boxPokemon.addAll(PokemonModel.toListModel(list));
       return true;
     } catch (e) {
       rethrow;
@@ -33,7 +31,8 @@ class PokemonLocalDataSourceImpl extends PokemonLocalDataSource {
   @override
   Future<bool> deleteAllPokemon() async {
     try {
-      await boxPokemon.clear();
+      final _boxPokemon = Hive.box<PokemonModel>('pokemon');
+      await _boxPokemon.clear();
       return true;
     } catch (e) {
       rethrow;
@@ -41,10 +40,21 @@ class PokemonLocalDataSourceImpl extends PokemonLocalDataSource {
   }
 
   @override
-  Pokemon getPokemonById(int id) {
+  Pokemon? getPokemonById(int id) {
     try {
-      var response = boxPokemon.values.firstWhere((Pokemon poke) => poke.code == id);
+      final _boxPokemon = Hive.box<PokemonModel>('pokemon');
+      var response = _boxPokemon.values.firstWhere((Pokemon poke) => poke.code == id);
       return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<bool> isPokemonEmpty() async {
+    try {
+      final _boxPokemon = Hive.box<PokemonModel>('pokemon');
+      return _boxPokemon.isEmpty;
     } catch (e) {
       rethrow;
     }

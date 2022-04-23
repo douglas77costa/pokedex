@@ -9,18 +9,25 @@ part 'pokemon_model.g.dart';
 @HiveType(typeId: 1)
 class PokemonModel extends Pokemon {
   @HiveField(0)
+  @override
   int? code;
   @HiveField(1)
+  @override
   String? name;
   @HiveField(2)
+  @override
   String? image;
   @HiveField(3)
+  @override
   String? characteristic;
   @HiveField(4)
+  @override
   List<String>? abilities;
   @HiveField(5)
+  @override
   String? about;
   @HiveField(6)
+  @override
   final List<TypesModel>? types;
 
   PokemonModel(
@@ -31,10 +38,32 @@ class PokemonModel extends Pokemon {
       this.abilities,
       this.about,
       this.types})
-      : super();
+      : super(
+            code: code,
+            name: name,
+            image: image,
+            characteristic: characteristic,
+            abilities: abilities,
+            about: about,
+            types: types);
 
   factory PokemonModel.fromJson(Map<String, dynamic> json) =>
       _$PokemonModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$PokemonModelToJson(this);
+
+  static List<PokemonModel> toListModel(List<Pokemon>? list) {
+    List<PokemonModel> listEntity = [];
+    list?.forEach((element) {
+      listEntity.add(PokemonModel(
+          code: element.code,
+          name: element.name,
+          image: element.image,
+          about: element.about,
+          characteristic: element.characteristic,
+          abilities: element.abilities,
+          types: TypesModel.toListModel(element.types)));
+    });
+    return listEntity;
+  }
 }

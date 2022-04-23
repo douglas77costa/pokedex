@@ -9,14 +9,15 @@ part of 'flavor_text_entries_api_model.dart';
 FlavorTextEntriesApiModel _$FlavorTextEntriesApiModelFromJson(
         Map<String, dynamic> json) =>
     FlavorTextEntriesApiModel(
+      flavorText: json['flavor_text'] as String?,
       language: json['language'] == null
           ? null
           : LanguageApiModel.fromJson(json['language'] as Map<String, dynamic>),
-    )..flavorText = json['flavorText'] as String?;
+    );
 
 Map<String, dynamic> _$FlavorTextEntriesApiModelToJson(
         FlavorTextEntriesApiModel instance) =>
     <String, dynamic>{
-      'flavorText': instance.flavorText,
+      'flavor_text': instance.flavorText,
       'language': instance.language,
     };
