@@ -1,12 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:pokedex/app/core/shared/domain/entities/types.dart';
-import 'package:pokedex/app/core/shared/infra/models/pokemon_types.dart';
 
 import '../../../utils/connectivity.dart';
 import '../../infra/repositories/pokemon_api_repository_impl.dart';
 import '../../infra/repositories/pokemon_local_repository_impl.dart';
 import '../entities/pokemon.dart';
-import '../entities/pokemon_api.dart';
 import '../errors/errors.dart';
 import '../interfaces/domain/save_pokemon_usecase.dart';
 

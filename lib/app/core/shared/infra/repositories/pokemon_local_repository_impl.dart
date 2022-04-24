@@ -11,7 +11,7 @@ class PokemonLocalRepositoryImpl implements PokemonLocalRepository {
   PokemonLocalRepositoryImpl(this.pokemonLocalDataSourceImpl);
 
   @override
-  Future<Either<Failure, List<Pokemon>?>> getAllPokemonList() async {
+  Future<Either<Failure, List<Pokemon>>> getAllPokemonList() async {
     try {
       var list = pokemonLocalDataSourceImpl.getAllPokemon();
       if (list != null && list.isNotEmpty) {

@@ -8,13 +8,13 @@ import '../../infra/repositories/pokemon_api_repository_impl.dart';
 import '../../infra/repositories/pokemon_local_repository_impl.dart';
 import '../entities/pokemon_api.dart';
 import '../entities/types.dart';
-import '../interfaces/domain/get_pokemon_usecase.dart';
+import '../interfaces/domain/get_pokemon_api_usecase.dart';
 
-class GetPokemonUseCaseImpl implements GetPokemonUseCase {
+class GetPokemonApiUseCaseImpl implements GetPokemonApiUseCase {
   final PokemonLocalRepositoryImpl pokemonLocalRepositoryImpl;
   final PokemonApiRepositoryImpl pokemonApiRepositoryImpl;
 
-  GetPokemonUseCaseImpl(this.pokemonLocalRepositoryImpl, this.pokemonApiRepositoryImpl);
+  GetPokemonApiUseCaseImpl(this.pokemonLocalRepositoryImpl, this.pokemonApiRepositoryImpl);
 
   @override
   Future<Either<Failure, Pokemon>> call(int id) async {

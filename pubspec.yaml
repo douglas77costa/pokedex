@@ -15,6 +15,9 @@ dependencies:
   fluentui_system_icons: ^1.1.161
   lottie: ^1.2.2
   syncfusion_flutter_gauges: ^20.1.50
+  cached_network_image: ^3.2.0
+  flutter_cache_manager: ^3.3.0
+  animations: ^2.0.2
 
   get: ^4.6.1
   json_annotation: ^4.4.0
@@ -42,4 +45,5 @@ flutter:
 
 flutter_icons:
   android: true
-  image_path: "assets/icons/ic_launcher.png"
+  ios: true
+  image_path: "assets/icons/icon.png"

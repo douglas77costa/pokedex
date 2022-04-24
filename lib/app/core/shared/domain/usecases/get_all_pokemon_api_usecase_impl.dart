@@ -4,12 +4,12 @@ import 'package:pokedex/app/core/shared/domain/errors/errors.dart';
 
 import '../../../utils/connectivity.dart';
 import '../../infra/repositories/pokemon_api_repository_impl.dart';
-import '../interfaces/domain/get_all_pokemon_usecase.dart';
+import '../interfaces/domain/get_all_pokemon_api_usecase.dart';
 
-class GetIdsAllPokemonUseCaseImpl implements GetIdsAllPokemonUseCase {
+class GetIdsAllPokemonApiUseCaseImpl implements GetIdsAllPokemonApiUseCase {
   final PokemonApiRepositoryImpl pokemonApiRepositoryImpl;
 
-  GetIdsAllPokemonUseCaseImpl(this.pokemonApiRepositoryImpl);
+  GetIdsAllPokemonApiUseCaseImpl(this.pokemonApiRepositoryImpl);
 
   @override
   Future<Either<Failure, List<IdIndex>>> call() async {

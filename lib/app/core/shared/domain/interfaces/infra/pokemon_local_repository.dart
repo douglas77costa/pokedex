@@ -4,7 +4,7 @@ import '../../entities/pokemon.dart';
 import '../../errors/errors.dart';
 
 abstract class PokemonLocalRepository {
-  Future<Either<Failure, List<Pokemon>?>> getAllPokemonList();
+  Future<Either<Failure, List<Pokemon>>> getAllPokemonList();
 
   Future<Either<Failure, Pokemon>?> getPokemonById(int id);
 

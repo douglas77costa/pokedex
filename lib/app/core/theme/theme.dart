@@ -6,7 +6,7 @@ import 'colors.dart';
 
 ThemeData appTheme(BuildContext context) => ThemeData(
     brightness: Brightness.light,
-    textTheme: GoogleFonts.interTextTheme(
+    textTheme: GoogleFonts.spartanTextTheme(
       Theme.of(context)
           .textTheme, // If this is not set, then ThemeData.light().textTheme is used.
     ),

@@ -1,20 +1,20 @@
+import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:pokedex/app/core/shared/domain/entities/id_index.dart';
-import 'package:flutter/foundation.dart';
 
 import '../../../../core/routes/pages.dart';
 import '../../../../core/shared/domain/entities/pokemon.dart';
 import '../../../../core/shared/domain/usecases/check_pokemon_storage_usecase_impl.dart';
-import '../../../../core/shared/domain/usecases/get_all_pokemon_usecase_impl.dart';
-import '../../../../core/shared/domain/usecases/get_pokemon_usecase_impl.dart';
+import '../../../../core/shared/domain/usecases/get_all_pokemon_api_usecase_impl.dart';
+import '../../../../core/shared/domain/usecases/get_pokemon_api_usecase_impl.dart';
 import '../../../../core/shared/domain/usecases/save_pokemon_usecase_impl.dart';
 import '../../../../core/shared/enums/status_type.dart';
 
 class SplashScreenController extends GetxController {
   CheckPokemonStorageUseCaseImpl checkPokemonStorageUseCaseImpl;
   SavePokemonUseCaseImpl savePokemonUseCaseImpl;
-  GetIdsAllPokemonUseCaseImpl getIdsAllPokemonUseCaseImpl;
-  GetPokemonUseCaseImpl getPokemonUseCaseImpl;
+  GetIdsAllPokemonApiUseCaseImpl getIdsAllPokemonUseCaseImpl;
+  GetPokemonApiUseCaseImpl getPokemonUseCaseImpl;
 
   SplashScreenController(this.checkPokemonStorageUseCaseImpl, this.savePokemonUseCaseImpl,
       this.getIdsAllPokemonUseCaseImpl, this.getPokemonUseCaseImpl);
@@ -44,7 +44,7 @@ class SplashScreenController extends GetxController {
         status = StatusType.LOAD;
         _getPokemon();
       } else {
-        Get.offAllNamed(Routes.home);
+        3.delay().whenComplete(() => Get.offAllNamed(Routes.home));
       }
     });
   }
