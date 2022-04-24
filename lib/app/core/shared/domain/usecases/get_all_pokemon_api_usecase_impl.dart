@@ -23,7 +23,7 @@ class GetIdsAllPokemonApiUseCaseImpl implements GetIdsAllPokemonApiUseCase {
           r?.asMap().forEach((index, element) {
             var uri = Uri.dataFromString(element.url ?? '');
             var code = uri.pathSegments[6];
-            listCodes.add(IdIndex(index, int.parse(code)));
+            listCodes.add(IdIndex(index, int.parse(code), element.name ?? ''));
           });
         });
         return right(listCodes);
