@@ -4,6 +4,8 @@ import 'package:pokedex/app/modules/pokemon_details/presentation/pages/pokemon_d
 
 import '../../modules/home/home_binding.dart';
 import '../../modules/home/presentation/pages/home_page.dart';
+import '../../modules/pokemon_search/pokemon_search_binding.dart';
+import '../../modules/pokemon_search/presentation/pages/pokemon_search_page.dart';
 import '../../modules/splash_screen/presentation/pages/splash_screen_page.dart';
 import '../../modules/splash_screen/splash_screen_binding.dart';
 
@@ -27,6 +29,12 @@ abstract class AppPages {
       name: Routes.pokemonDetails,
       page: () => PokemonDetailsPage(),
       binding: PokemonDetailsBinding(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: Routes.pokemonSearch,
+      page: () => PokemonSearchPage(),
+      binding: PokemonSearchBinding(),
       transition: Transition.cupertino,
     ),
   ];

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,8 +11,8 @@ import '../../../../core/routes/pages.dart';
 import '../../../../core/shared/domain/entities/pokemon.dart';
 import '../../../../core/theme/layout_space.dart';
 
-class CardItemPokemon extends StatelessWidget {
-  const CardItemPokemon({Key? key, required this.pokemon}) : super(key: key);
+class ListItemPokemon extends StatelessWidget {
+  const ListItemPokemon({Key? key, required this.pokemon}) : super(key: key);
   final Pokemon pokemon;
 
   @override
@@ -58,45 +60,57 @@ class CardItemPokemon extends StatelessWidget {
                 const SizedBox(
                   height: layoutSpace4,
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    '${pokemon.name?.capitalizeFirst}',
-                    style: TextStyle(
-                        color: HexColor.fromHex(pokemon.types!.first.color!),
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
-                const SizedBox(
-                  height: 2,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Text(
-                    '#${pokemon.code}',
-                    style: TextStyle(
-                        color: HexColor.fromHex(pokemon.types!.first.color!)
-                            .withOpacity(0.5),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: CachedNetworkImage(
-                      width: 110,
-                      fit: BoxFit.cover,
-                      imageUrl: pokemon.image ?? '',
-                      placeholder: (context, url) {
-                        return const CupertinoActivityIndicator();
-                      },
-                      errorWidget: (context, url, error) =>
-                          const Icon(FluentIcons.error_circle_12_regular),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          child: Text(
+                            '${pokemon.name?.capitalizeFirst}',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: HexColor.fromHex(pokemon.types!.first.color!),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 2,
+                        ),
+                        SizedBox(
+                          child: Text(
+                            '#${pokemon.code}',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: HexColor.fromHex(pokemon.types!.first.color!)
+                                    .withOpacity(0.5),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600),
+                          ),
+                        ),
+                      ],
                     ),
-                  ).marginOnly(right: layoutSpace4),
+                    SizedBox(
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: CachedNetworkImage(
+                          width: 110,
+                          fit: BoxFit.cover,
+                          imageUrl: pokemon.image ?? '',
+                          placeholder: (context, url) {
+                            return const CupertinoActivityIndicator();
+                          },
+                          errorWidget: (context, url, error) =>
+                              const SizedBox(height: 100,child: Icon(FluentIcons.error_circle_12_regular)),
+                        ),
+                      ).marginOnly(
+                          right: layoutSpace4, top: layoutSpace4, bottom: layoutSpace8),
+                    )
+                  ],
                 )
               ],
             ),

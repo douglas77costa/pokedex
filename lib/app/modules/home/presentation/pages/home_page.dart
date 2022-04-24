@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:pokedex/app/core/theme/colors.dart';
 import 'package:pokedex/app/modules/home/presentation/widgets/card_item_pokemon.dart';
 
+import '../../../../core/routes/pages.dart';
 import '../../../../core/theme/assets.dart';
 import '../../../../core/theme/layout_space.dart';
 import '../controllers/home_controller.dart';
@@ -17,28 +18,28 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-          child: Container(
-            color: AppColors.primary,
-            padding: const EdgeInsets.only(
-                left: layoutSpace16, right: layoutSpace16, bottom: layoutSpace24),
+          child: GestureDetector(
+            onTap: () => Get.toNamed(Routes.pokemonSearch),
             child: Container(
-              margin: EdgeInsets.only(top: 28 + MediaQuery
-                  .of(context)
-                  .padding
-                  .top),
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(30))),
-              padding: const EdgeInsets.only(left: layoutSpace20, right: layoutSpace20),
-              height: 56,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text(
-                    "Search a pokemon...",
-                  ),
-                  Icon(FluentIcons.search_24_regular)
-                ],
+              color: AppColors.primary,
+              padding: const EdgeInsets.only(
+                  left: layoutSpace16, right: layoutSpace16, bottom: layoutSpace24),
+              child: Container(
+                margin: EdgeInsets.only(top: 28 + MediaQuery.of(context).padding.top),
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(30))),
+                padding: const EdgeInsets.only(left: layoutSpace20, right: layoutSpace20),
+                height: 56,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: const [
+                    Text(
+                      "Search a pokemon...",
+                    ),
+                    Icon(FluentIcons.search_24_regular)
+                  ],
+                ),
               ),
             ),
           ),
@@ -52,11 +53,11 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: Obx(() {
               return GridView.builder(
-                  padding: const EdgeInsets.only(
-                      left: layoutSpace16, right: layoutSpace16),
+                  padding:
+                      const EdgeInsets.only(left: layoutSpace16, right: layoutSpace16),
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
-                      childAspectRatio: 1 / 1,
+                      childAspectRatio: 1 / 1.11,
                       crossAxisSpacing: 14,
                       mainAxisSpacing: 14),
                   itemCount: controller.listPokemon.length,

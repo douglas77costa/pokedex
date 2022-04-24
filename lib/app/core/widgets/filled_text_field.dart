@@ -29,6 +29,8 @@ class FilledTextField extends StatelessWidget {
     this.maxLines,
     this.maxLength,
     this.prefixText,
+    this.prefixIcon,
+    this.autofocus,
   }) : super(key: key);
 
   final String? hintText;
@@ -45,6 +47,7 @@ class FilledTextField extends StatelessWidget {
   final TextInputType? keyboardType;
   final Iterable<String>? autofillHints;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final InputDecoration? decoration;
   final List<TextInputFormatter>? inputFormatters;
   final bool? readOnly;
@@ -53,6 +56,7 @@ class FilledTextField extends StatelessWidget {
   final int? maxLines;
   final int? maxLength;
   final String? prefixText;
+  final bool? autofocus;
 
   @override
   Widget build(BuildContext context) {
@@ -68,30 +72,28 @@ class FilledTextField extends StatelessWidget {
       inputFormatters: inputFormatters,
       readOnly: readOnly ?? false,
       onTap: onTap,
+      autofocus: autofocus??false,
       decoration: decoration ??
           InputDecoration(
               border: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
-                borderSide:
-                    BorderSide(color: fillColor ?? AppColors.neutral0, width: 0.0),
+                borderSide: BorderSide(color: fillColor ?? Colors.white, width: 0.0),
               ),
               focusedBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(30)),
-                borderSide: BorderSide(color: AppColors.neutral2, width: 1.5),
+                borderSide: BorderSide(color: Colors.white, width: 1.5),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
-                borderSide:
-                    BorderSide(color: fillColor ?? AppColors.neutral0, width: 0.0),
+                borderSide: BorderSide(color: fillColor ?? Colors.white, width: 0.0),
               ),
               focusedErrorBorder: const OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(30)),
-                borderSide: BorderSide(color: AppColors.neutral2, width: 1.5),
+                borderSide: BorderSide(color: Colors.white, width: 1.5),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: const BorderRadius.all(Radius.circular(30)),
-                borderSide:
-                    BorderSide(color: fillColor ?? AppColors.neutral0, width: 0.0),
+                borderSide: BorderSide(color: fillColor ?? Colors.white, width: 0.0),
               ),
               hintText: hintText,
               hintStyle: hintStyle ??
@@ -102,6 +104,7 @@ class FilledTextField extends StatelessWidget {
               filled: filled ?? true,
               fillColor: fillColor ?? AppColors.neutral0,
               suffixIcon: suffixIcon,
+              prefixIcon: prefixIcon,
               prefixText: prefixText,
               errorStyle: TextStyle(color: errorColor ?? AppColors.primary),
               contentPadding: const EdgeInsets.all(layoutSpace20)),

@@ -26,12 +26,11 @@ class PokemonDetailsPage extends StatelessWidget {
             gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          stops: const [0.1, 0.3, 0.8, 1.0],
+          stops: const [0.1, 0.3, 0.8],
           colors: [
             HexColor.fromHex(pokemon.types!.first.color!).withOpacity(0.5),
             Colors.white,
-            Colors.white,
-            HexColor.fromHex(pokemon.types!.first.color!).withOpacity(0.3)
+            Colors.white
           ],
         )),
         child: Padding(
@@ -78,7 +77,7 @@ class PokemonDetailsPage extends StatelessWidget {
                 trailing: Text('#${pokemon.code}',
                     style: TextStyle(
                         color: HexColor.fromHex(pokemon.types!.first.color!)
-                            .withOpacity(0.3),
+                            .withOpacity(0.5),
                         fontSize: 20,
                         fontWeight: FontWeight.w600)),
               ),
@@ -149,9 +148,12 @@ class PokemonDetailsPage extends StatelessWidget {
               const SizedBox(
                 height: layoutSpace8,
               ),
-              Text(
-                "${pokemon.about}",
-                style: const TextStyle(color: AppColors.defaultTextColor, fontSize: 14),
+              SizedBox(
+                width: double.infinity,
+                child: Text(
+                  pokemon.about??'Without description',
+                  style: const TextStyle(color: AppColors.defaultTextColor, fontSize: 14),
+                ),
               )
             ],
           ),
