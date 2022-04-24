@@ -19,8 +19,6 @@ class PokemonSearchController extends GetxController {
   final listPokemon = <Pokemon>[].obs;
   final resultListPokemon = <Pokemon>[].obs;
 
-  String query = '';
-
   @override
   void onReady() {
     getPokemon();
@@ -37,10 +35,10 @@ class PokemonSearchController extends GetxController {
     });
   }
 
-  void search() {
+  void search(String keyword) {
     resultListPokemon.clear();
     resultListPokemon.addAll(listPokemon.where((pokemon) {
-      if (pokemon.name!.isCaseInsensitiveContainsAny(query)) {
+      if (pokemon.name!.isCaseInsensitiveContainsAny(keyword)) {
         return true;
       } else {
         return false;

@@ -31,7 +31,7 @@ class PokemonSearchPage extends StatelessWidget {
               fillColor: Colors.white,
               keyboardType: TextInputType.text,
               hintText: 'Search a pokemon...',
-              onChanged: (query) => controller.query = query,
+              onChanged: (query) => controller.search(query),
               autofocus: true,
               prefixIcon: IconButton(
                   visualDensity: VisualDensity.compact,
@@ -44,7 +44,6 @@ class PokemonSearchPage extends StatelessWidget {
                   visualDensity: VisualDensity.compact,
                   onPressed: () {
                     FocusScope.of(context).requestFocus(FocusNode());
-                    controller.search();
                   },
                   icon: const Icon(FluentIcons.search_24_filled)),
             ),
