@@ -5,15 +5,15 @@ The project used the concepts of clean architecture, which makes the project mod
 
 ### Pacotes
 
-Alguns pacotes utilizados:
+Some packages used:
 
-- GetX: para gerencia de estado, rotas e chamadas http.
+- GetX: to manage status, routes and http calls.
 
-- Dartz: Programação funcional em Dart para auxiliar nos retornos das camadas da arquitetura limpa
+- Dartz: Functional programming in Dart to assist in the returns of clean architecture layers
 
-- Json Serializable: Geração de mapeamento e conversão json das classes.
+- Json Serializable: Generation of json mapping and conversion of classes.
 
-- Hive: Armanezamento local da lista de pokemons.
+- Hive: Local storage of pokemon list.
 
 ### API:
 
