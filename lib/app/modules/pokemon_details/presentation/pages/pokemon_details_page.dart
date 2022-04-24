@@ -34,7 +34,7 @@ class PokemonDetailsPage extends StatelessWidget {
           ],
         )),
         child: Padding(
-          padding: const EdgeInsets.all(layoutSpace24),
+          padding: const EdgeInsets.all(layoutSpace16),
           child: Column(
             children: [
               SizedBox(
