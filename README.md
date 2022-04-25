@@ -1,5 +1,6 @@
 # Pokedex
 A pokedex app made in flutter.
+
 ### Architecture
 The project used the concepts of clean architecture, which makes the project modular, facilitating the implementation and maintenance of the code.
 
@@ -18,3 +19,8 @@ Some packages used:
 ### API:
 
 The public api https://pokeapi.co/ was used for data consumption.
+
+### Prototype:
+Figma was used as a design and prototyping tool.
+Check the prototype in the following link:
+https://www.figma.com/file/GEhzeqn1n0HshPeN57W6ob/Pokedex?node-id=7%3A2
